@@ -1,0 +1,14 @@
+{
+    "name": "ianlessa/ecf-experiments",
+    "authors": [
+        {
+            "name": "Ian Lessa",
+            "email": "ian.lessa1@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "^5"
+    }
+}
