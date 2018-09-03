@@ -6,6 +6,9 @@
             "email": "ian.lessa1@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"Ecf\\": "app/"}
+    },
     "require": {},
     "require-dev": {
         "squizlabs/php_codesniffer": "*",

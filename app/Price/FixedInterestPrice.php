@@ -2,13 +2,13 @@
 
 namespace Ecf\Price;
 
-class BasePrice extends AbstractPrice
+class FixedInterestPrice extends PriceDecorator
 {
     /**
      * @return int
      */
     public function getValue()
     {
-        return $this->value;
+        return $this->price->getValue() + $this->value;
     }
 }

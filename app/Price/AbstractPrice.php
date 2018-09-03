@@ -6,7 +6,9 @@ use Ecf\Exception\InvalidOperationException;
 
 abstract class AbstractPrice
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $value;
 
     public function __construct($value)
@@ -20,7 +22,7 @@ abstract class AbstractPrice
     abstract public function getValue();
 
     /**
-     * @param int $value
+     * @param  int $value
      * @return AbstractPrice
      * @throws InvalidOperationException
      */
