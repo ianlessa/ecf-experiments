@@ -10,7 +10,8 @@ class BasePriceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers            BasePrice::__construct
+     * @covers            Ecf\Price\AbstractPrice::__construct
+     * @covers            Ecf\Price\AbstractPrice::setValue
      * @expectedException InvalidOperationException
      */
     public function a_price_should_not_be_created_with_negative_value()
@@ -22,8 +23,9 @@ class BasePriceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers BasePrice::__construct
-     * @covers BasePrice::getValue
+     * @covers Ecf\Price\AbstractPrice::__construct
+     * @covers Ecf\Price\AbstractPrice::setValue
+     * @covers Ecf\Price\BasePrice::getValue
      */
     public function a_price_should_be_created_with_positive_value()
     {

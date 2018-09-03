@@ -11,4 +11,13 @@
     <testsuite name="default">
         <directory>app/Price/Tests</directory>
     </testsuite>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">app/</directory>
+            <exclude>
+                <directory suffix=".php">app/Price/Tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>
