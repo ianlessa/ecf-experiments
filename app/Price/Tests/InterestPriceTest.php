@@ -16,12 +16,12 @@ class InterestPriceTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Price\PriceDecorator::__construct
      * @covers \Ecf\Price\InterestPrice::getValue
      */
-    public function interest_value_should_be_added_into_final_price()
+    public function interestValueShouldBeAddedIntoFinalPrice()
     {
         $basePrice = new BasePrice(10);
-        $priceWithInterest = new InterestPrice($basePrice,7);
+        $priceWithInterest = new InterestPrice($basePrice, 7);
 
-        $this->assertEquals(17,$priceWithInterest->getValue());
+        $this->assertEquals(17, $priceWithInterest->getValue());
     }
 
     /**
@@ -32,13 +32,12 @@ class InterestPriceTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Price\PriceDecorator::__construct
      * @covers \Ecf\Price\InterestPrice::getValue
      */
-    public function multple_interest_value_should_be_added_into_final_price()
+    public function multipleInterestValueShouldBeAddedIntoFinalPrice()
     {
         $basePrice = new BasePrice(10);
-        $priceWithInterest = new InterestPrice($basePrice,7);
-        $priceWithInterest = new InterestPrice($priceWithInterest,14);
+        $priceWithInterest = new InterestPrice($basePrice, 7);
+        $priceWithInterest = new InterestPrice($priceWithInterest, 14);
 
-        $this->assertEquals(31,$priceWithInterest->getValue());
+        $this->assertEquals(31, $priceWithInterest->getValue());
     }
-
 }

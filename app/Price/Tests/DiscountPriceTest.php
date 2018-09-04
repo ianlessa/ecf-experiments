@@ -17,12 +17,12 @@ class DiscountPriceTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Price\PriceDecorator::__construct
      * @covers \Ecf\Price\DiscountPrice::getValue
      */
-    public function discount_value_should_be_removed_from_final_price()
+    public function discountValueShouldBeRemovedFromFinalPrice()
     {
         $basePrice = new BasePrice(10);
-        $priceWithDiscount = new DiscountPrice($basePrice,7);
+        $priceWithDiscount = new DiscountPrice($basePrice, 7);
 
-        $this->assertEquals(3,$priceWithDiscount->getValue());
+        $this->assertEquals(3, $priceWithDiscount->getValue());
     }
 
     /**
@@ -34,13 +34,13 @@ class DiscountPriceTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Price\PriceDecorator::__construct
      * @covers \Ecf\Price\DiscountPrice::getValue
      */
-    public function multiple_discount_value_should_be_removed_from_final_price()
+    public function multipleDiscountValueShouldBeRemovedFromFinalPrice()
     {
         $basePrice = new BasePrice(10);
-        $priceWithDiscount = new DiscountPrice($basePrice,7);
-        $priceWithDiscount = new DiscountPrice($priceWithDiscount,2);
+        $priceWithDiscount = new DiscountPrice($basePrice, 7);
+        $priceWithDiscount = new DiscountPrice($priceWithDiscount, 2);
 
-        $this->assertEquals(1,$priceWithDiscount->getValue());
+        $this->assertEquals(1, $priceWithDiscount->getValue());
     }
 
     /**
@@ -54,12 +54,12 @@ class DiscountPriceTest extends \PHPUnit_Framework_TestCase
      *
      * @expectedException InvalidOperationException
      */
-    public function a_price_with_discount_should_not_be_less_than_zero()
+    public function aPriceWithDiscountSouldNotBeLessThanZero()
     {
         $this->expectException(InvalidOperationException::class);
 
         $basePrice = new BasePrice(10);
-        $priceWithDiscount = new DiscountPrice($basePrice,70);
+        $priceWithDiscount = new DiscountPrice($basePrice, 70);
 
         $priceWithDiscount->getValue();
     }

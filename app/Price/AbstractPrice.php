@@ -28,12 +28,12 @@ abstract class AbstractPrice
      */
     protected function setValue($value)
     {
-        $_value = intval($value);
-        if ($_value < 0) {
+        $intValue = intval($value);
+        if ($intValue < 0) {
             throw new InvalidOperationException();
         }
 
-        $this->value = $_value;
+        $this->value = $intValue;
         return $this;
     }
 }

@@ -10,12 +10,12 @@ class BasePriceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @covers            Ecf\Price\AbstractPrice::__construct
-     * @covers            Ecf\Price\AbstractPrice::setValue
+     * @covers Ecf\Price\AbstractPrice::__construct
+     * @covers Ecf\Price\AbstractPrice::setValue
      *
      * @expectedException InvalidOperationException
      */
-    public function a_price_should_not_be_created_with_negative_value()
+    public function aPriceShouldNotBeCreatedWithNegativeValue()
     {
         $this->expectException(InvalidOperationException::class);
 
@@ -28,7 +28,7 @@ class BasePriceTest extends \PHPUnit_Framework_TestCase
      * @covers Ecf\Price\AbstractPrice::setValue
      * @covers Ecf\Price\BasePrice::getValue
      */
-    public function a_price_should_be_created_with_positive_value()
+    public function aPriceShouldBeCreatedWithPositiveValue()
     {
         $price = new BasePrice(100);
 
