@@ -7,16 +7,17 @@
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutTodoAnnotatedTests="true"
-         verbose="true">
+         verbose="true"
+        >
     <testsuite name="default">
         <directory>app/Price/Tests</directory>
     </testsuite>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">app/</directory>
+            <directory suffix=".php">app</directory>
             <exclude>
-                <directory suffix=".php">app/Price/Tests</directory>
+                <directory suffix=".php">app/*/Tests</directory>
             </exclude>
         </whitelist>
     </filter>

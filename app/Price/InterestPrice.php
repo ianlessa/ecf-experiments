@@ -2,7 +2,7 @@
 
 namespace Ecf\Price;
 
-class FixedInterestPrice extends PriceDecorator
+class InterestPrice extends PriceDecorator
 {
     /**
      * @return int

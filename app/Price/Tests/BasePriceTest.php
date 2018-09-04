@@ -12,6 +12,7 @@ class BasePriceTest extends \PHPUnit_Framework_TestCase
      * @test
      * @covers            Ecf\Price\AbstractPrice::__construct
      * @covers            Ecf\Price\AbstractPrice::setValue
+     *
      * @expectedException InvalidOperationException
      */
     public function a_price_should_not_be_created_with_negative_value()
