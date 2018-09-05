@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ian
- * Date: 05/09/18
- * Time: 12:06
- */
 
 namespace Ecf\Transaction\Tests;
 

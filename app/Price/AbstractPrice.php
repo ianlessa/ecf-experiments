@@ -2,9 +2,10 @@
 
 namespace Ecf\Price;
 
+use Ecf\Base\ValueObjectInterface;
 use Ecf\Exception\InvalidOperationException;
 
-abstract class AbstractPrice
+abstract class AbstractPrice implements ValueObjectInterface
 {
     /**
      * @var int
@@ -35,5 +36,17 @@ abstract class AbstractPrice
 
         $this->value = $intValue;
         return $this;
+    }
+
+    /**
+     * @param AbstractPrice $valueObject
+     *
+     * @return boolean
+     */
+    public function equals(ValueObjectInterface $valueObject)
+    {
+        return
+            is_a($valueObject,static::class) &&
+            $this->getValue() === $valueObject->getValue();
     }
 }

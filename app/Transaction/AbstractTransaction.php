@@ -3,9 +3,10 @@
 namespace Ecf\Transaction;
 
 use DateTime;
+use Ecf\Base\ValueObjectInterface;
 use Ecf\Exception\InvalidOperationException;
 
-abstract class AbstractTransaction
+abstract class AbstractTransaction implements ValueObjectInterface
 {
     /**
      * The total of the transaction
@@ -54,6 +55,20 @@ abstract class AbstractTransaction
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @param AbstractTransaction $valueObject
+     *
+     * @return boolean
+     */
+    public function equals(ValueObjectInterface $valueObject)
+    {
+        return
+            is_a($valueObject,static::class) &&
+            $this->getTotal() === $valueObject->getTotal() &&
+            $this->getTotalPaid() === $valueObject->getTotalPaid() &&
+            $this->getTotalCanceled() === $valueObject->getTotalCanceled();
     }
 
     /**
