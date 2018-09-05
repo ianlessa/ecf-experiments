@@ -54,7 +54,10 @@ class PaidTransaction extends TransactionDecorator
         $newTotalPaid = $this->transaction->getTotalPaid() + $total;
 
         if ($newTotalPaid > $this->transaction->getTotal()) {
-            throw new InvalidOperationException("New paid total plus total is greater than total! {$newTotalPaid} > {$this->transaction->getTotalPaid()}");
+            throw new InvalidOperationException(
+                "New paid total plus total is greater than total! " .
+                "{$newTotalPaid} > {$this->transaction->getTotalPaid()}"
+            );
         }
 
         parent::setTotal($intTotal);
@@ -64,14 +67,14 @@ class PaidTransaction extends TransactionDecorator
 
     private function canConstruct($transaction)
     {
-        /**
-         * @var TransactionDecorator $currentTransaction
-         */
         $currentTransaction = $transaction;
         while (is_a($currentTransaction, TransactionDecorator::class)) {
             if (is_a($currentTransaction, self::class)) {
                 return false;
             }
+            /**
+             * @var TransactionDecorator $currentTransaction
+             */
             $currentTransaction = $currentTransaction->getTransaction();
         }
 

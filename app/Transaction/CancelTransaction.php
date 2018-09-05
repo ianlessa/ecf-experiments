@@ -26,7 +26,10 @@ class CancelTransaction extends TransactionDecorator
         $newTotalCanceled = $this->transaction->getTotalCanceled() + $total;
 
         if ($newTotalCanceled > $this->transaction->getTotalPaid()) {
-            throw new InvalidOperationException("New cancel total plus total is greater than total paid! {$newTotalCanceled} > {$this->transaction->getTotalPaid()}");
+            throw new InvalidOperationException(
+                "New cancel total plus total is greater than total paid! " .
+                "{$newTotalCanceled} > {$this->transaction->getTotalPaid()}"
+            );
         }
 
         parent::setTotal($intTotal);
