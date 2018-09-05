@@ -2,9 +2,7 @@
 
 namespace Ecf\Transaction;
 
-
 use DateTime;
-use Ecf\Exception\InvalidOperationException;
 
 class BaseTransaction extends AbstractTransaction
 {

@@ -3,6 +3,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/199f4b77170b54cb7e58/maintainability)](https://codeclimate.com/github/ianlessa/ecf-experiments/maintainability) 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/199f4b77170b54cb7e58/test_coverage)](https://codeclimate.com/github/ianlessa/ecf-experiments/test_coverage) 
 
-[![Tested on PHP 5.6 to nightly](https://img.shields.io/badge/tested%20on-PHP%205.6%20|%207.0%20|%207.1%20|%207.2%20|%20hhvm%20|%20nightly-brightgreen.svg?maxAge=2419200)](https://travis-ci.com/ianlessa/ecf-experiments)
+[![Build Status](https://travis-ci.com/ianlessa/ecf-experiments.svg?branch=master)](https://travis-ci.com/ianlessa/ecf-experiments) [![Tested on PHP 5.6 to nightly](https://img.shields.io/badge/tested%20on-PHP%205.6%20|%207.0%20|%207.1%20|%207.2%20|%20hhvm%20|%20nightly-brightgreen.svg?maxAge=2419200)](https://travis-ci.com/ianlessa/ecf-experiments)
 
 #### Experiments
