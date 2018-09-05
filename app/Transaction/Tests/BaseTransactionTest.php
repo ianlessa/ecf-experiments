@@ -38,6 +38,8 @@ class BaseTransactionTest extends \PHPUnit_Framework_TestCase
      *
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
+     *
+     * @throws InvalidOperationException
      */
     public function aTransactionShouldBeCorrectInitialized()
     {

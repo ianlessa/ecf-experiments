@@ -12,7 +12,7 @@ class PaidTransaction extends TransactionDecorator
     {
 
         if (!$this->canConstruct($transaction)) {
-           throw new InvalidOperationException('Transaction already paid!');
+            throw new InvalidOperationException('Transaction already paid!');
         }
 
         parent::__construct($transaction, $value, $createdAt);
@@ -50,9 +50,6 @@ class PaidTransaction extends TransactionDecorator
     protected function setTotal($total)
     {
         $intTotal = intval($total);
-        if ($intTotal < 0) {
-            throw new InvalidOperationException('Total must not be less than 0!');
-        }
 
         $newTotalPaid = $this->transaction->getTotalPaid() + $total;
 
@@ -60,7 +57,8 @@ class PaidTransaction extends TransactionDecorator
             throw new InvalidOperationException("New paid total plus total is greater than total! {$newTotalPaid} > {$this->transaction->getTotalPaid()}");
         }
 
-        $this->total = $intTotal;
+        parent::setTotal($intTotal);
+
         return $this;
     }
 
@@ -70,9 +68,8 @@ class PaidTransaction extends TransactionDecorator
          * @var TransactionDecorator $currentTransaction
          */
         $currentTransaction = $transaction;
-        while (is_a($currentTransaction,TransactionDecorator::class))
-        {
-            if (is_a($currentTransaction,self::class)) {
+        while (is_a($currentTransaction, TransactionDecorator::class)) {
+            if (is_a($currentTransaction, self::class)) {
                 return false;
             }
             $currentTransaction = $currentTransaction->getTransaction();

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ian
  * Date: 05/09/18
- * Time: 10:20
+ * Time: 12:06
  */
 
 namespace Ecf\Transaction\Tests;
@@ -11,9 +11,10 @@ namespace Ecf\Transaction\Tests;
 use DateTime;
 use Ecf\Exception\InvalidOperationException;
 use Ecf\Transaction\BaseTransaction;
+use Ecf\Transaction\CancelTransaction;
 use Ecf\Transaction\PaidTransaction;
 
-class PaidTransactionTest extends \PHPUnit_Framework_TestCase
+class CancelTransactionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -24,22 +25,22 @@ class PaidTransactionTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Transaction\BaseTransaction::__construct
      * @covers \Ecf\Transaction\BaseTransaction::setTotal
      * @covers \Ecf\Transaction\BaseTransaction::getTotal
+     * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
      *
      * @covers \Ecf\Transaction\TransactionDecorator::__construct
      *
-     * @covers \Ecf\Transaction\PaidTransaction::__construct
-     * @covers \Ecf\Transaction\PaidTransaction::canConstruct
-     * @covers \Ecf\Transaction\PaidTransaction::setTotal
+     * @covers \Ecf\Transaction\CancelTransaction::__construct
+     * @covers \Ecf\Transaction\CancelTransaction::setTotal
      *
      * @expectedException \Ecf\Exception\InvalidOperationException
      */
-    public function aPaidTransactionValueShouldNotBeNegative()
+    public function aCancelTransactionValueShouldNotBeNegative()
     {
         $this->expectException(InvalidOperationException::class);
 
         $transaction = new BaseTransaction(10, new DateTime());
-        new PaidTransaction($transaction, -10, new DateTime());
+        new CancelTransaction($transaction, -10, new DateTime());
     }
 
     /**
@@ -49,52 +50,24 @@ class PaidTransactionTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
      *
      * @covers \Ecf\Transaction\BaseTransaction::__construct
+     * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
      * @covers \Ecf\Transaction\BaseTransaction::setTotal
      * @covers \Ecf\Transaction\BaseTransaction::getTotal
      *
-     * @covers \Ecf\Transaction\PaidTransaction::__construct
-     * @covers \Ecf\Transaction\PaidTransaction::canConstruct
-     * @covers \Ecf\Transaction\PaidTransaction::setTotal
+     * @covers \Ecf\Transaction\CancelTransaction::__construct
+     * @covers \Ecf\Transaction\CancelTransaction::setTotal
      *
      * @covers \Ecf\Transaction\TransactionDecorator::__construct
      *
      * @expectedException \Ecf\Exception\InvalidOperationException
      */
-    public function aPaidTransactionValueShouldNotBeGreaterThanBaseTotalValue()
+    public function aCancelTransactionValueShouldNotBeGreaterThanBaseTotalValue()
     {
         $this->expectException(InvalidOperationException::class);
 
         $transaction = new BaseTransaction(10, new DateTime());
-        new PaidTransaction($transaction, 50, new DateTime());
-    }
-
-    /**
-     * @test
-     *
-     * @covers \Ecf\Transaction\AbstractTransaction::__construct
-     * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
-     *
-     * @covers \Ecf\Transaction\BaseTransaction::__construct
-     * @covers \Ecf\Transaction\BaseTransaction::getTotal
-     * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
-     * @covers \Ecf\Transaction\BaseTransaction::setTotal
-     *
-     * @covers \Ecf\Transaction\PaidTransaction::__construct
-     * @covers \Ecf\Transaction\PaidTransaction::canConstruct
-     * @covers \Ecf\Transaction\PaidTransaction::getTotalPaid
-     * @covers \Ecf\Transaction\PaidTransaction::setTotal
-     *
-     * @covers \Ecf\Transaction\TransactionDecorator::__construct
-     *
-     * @throws InvalidOperationException
-     */
-    public function aPaidTransactionShouldAddValueToTotalPaid()
-    {
-        $transaction = new BaseTransaction(10, new DateTime());
-        $transaction = new PaidTransaction($transaction, 7, new DateTime());
-
-        $this->assertEquals(7, $transaction->getTotalPaid());
+        new CancelTransaction($transaction, 50, new DateTime());
     }
 
     /**
@@ -106,41 +79,51 @@ class PaidTransactionTest extends \PHPUnit_Framework_TestCase
      *
      * @covers \Ecf\Transaction\BaseTransaction::__construct
      * @covers \Ecf\Transaction\BaseTransaction::getTotal
+     * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
+     *
+     * @covers \Ecf\Transaction\CancelTransaction::__construct
+     * @covers \Ecf\Transaction\CancelTransaction::getTotalCanceled
+     * @covers \Ecf\Transaction\CancelTransaction::getTotalPaid
+     * @covers \Ecf\Transaction\CancelTransaction::setTotal
      *
      * @covers \Ecf\Transaction\PaidTransaction::__construct
      * @covers \Ecf\Transaction\PaidTransaction::canConstruct
-     * @covers \Ecf\Transaction\PaidTransaction::getTotal
+     * @covers \Ecf\Transaction\PaidTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\PaidTransaction::getTotalPaid
      * @covers \Ecf\Transaction\PaidTransaction::setTotal
      *
      * @covers \Ecf\Transaction\TransactionDecorator::__construct
-     * @covers \Ecf\Transaction\TransactionDecorator::getTransaction
      *
-     * @expectedException InvalidOperationException
+     * @throws InvalidOperationException
      */
-    public function aPaidTransactionShouldNotPaidAAlreadyPaidTransaction()
+    public function aCancelTransactionShouldAddValueToTotalPaid()
     {
-        $this->expectException(InvalidOperationException::class);
-
         $transaction = new BaseTransaction(10, new DateTime());
-        $transaction = new PaidTransaction($transaction, 1, new DateTime());
+        $transaction = new PaidTransaction($transaction, 9, new DateTime());
+        $transaction = new CancelTransaction($transaction, 7, new DateTime());
+        $transaction = new CancelTransaction($transaction, 2, new DateTime());
 
-        new PaidTransaction($transaction, 2, new DateTime());
+        $this->assertEquals(9, $transaction->getTotalCanceled());
     }
-
 
     /**
      * @test
      *
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
+     * @covers \Ecf\Transaction\AbstractTransaction::setTotal
      *
      * @covers \Ecf\Transaction\BaseTransaction::__construct
      * @covers \Ecf\Transaction\BaseTransaction::getTotal
      * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
-     * @covers \Ecf\Transaction\BaseTransaction::setTotal
+     *
+     * @covers \Ecf\Transaction\CancelTransaction::__construct
+     * @covers \Ecf\Transaction\CancelTransaction::getTotal
+     * @covers \Ecf\Transaction\CancelTransaction::getTotalCanceled
+     * @covers \Ecf\Transaction\CancelTransaction::getTotalPaid
+     * @covers \Ecf\Transaction\CancelTransaction::setTotal
      *
      * @covers \Ecf\Transaction\PaidTransaction::__construct
      * @covers \Ecf\Transaction\PaidTransaction::canConstruct
@@ -153,13 +136,41 @@ class PaidTransactionTest extends \PHPUnit_Framework_TestCase
      *
      * @throws InvalidOperationException
      */
-    public function aPaidTransactionShouldRetrieveTheCorrectTransactionValues()
+    public function aCancelTransactionShouldRetrieveTheCorrectTransactionValues()
     {
         $transaction = new BaseTransaction(10, new DateTime());
-        $transaction = new PaidTransaction($transaction, 2, new DateTime());
+        $transaction = new PaidTransaction($transaction, 9, new DateTime());
+        $transaction = new CancelTransaction($transaction, 7, new DateTime());
 
         $this->assertEquals(10, $transaction->getTotal());
-        $this->assertEquals(2, $transaction->getTotalPaid());
-        $this->assertEquals(0, $transaction->getTotalCanceled());
+        $this->assertEquals(9, $transaction->getTotalPaid());
+        $this->assertEquals(7, $transaction->getTotalCanceled());
+    }
+
+    /**
+     * @test
+     *
+     * @covers \Ecf\Transaction\AbstractTransaction::__construct
+     * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
+     * @covers \Ecf\Transaction\AbstractTransaction::setTotal
+     *
+     * @covers \Ecf\Transaction\BaseTransaction::__construct
+     * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
+     * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
+     *
+     * @covers \Ecf\Transaction\CancelTransaction::__construct
+     * @covers \Ecf\Transaction\CancelTransaction::setTotal
+     *
+     * @covers \Ecf\Transaction\TransactionDecorator::__construct
+     *
+     * @expectedException InvalidOperationException
+     */
+    public function aCancelTransactionShouldNotBeGreatherThanPaidValue()
+    {
+        $this->expectException(InvalidOperationException::class);
+
+        $transaction = new BaseTransaction(10, new DateTime());
+
+        new CancelTransaction($transaction, 9, new DateTime());
     }
 }

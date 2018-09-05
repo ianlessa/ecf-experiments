@@ -16,4 +16,12 @@ abstract class TransactionDecorator extends AbstractTransaction
         $this->transaction = $transaction;
         parent::__construct($value, $createdAt);
     }
+
+    /**
+     * @return AbstractTransaction
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
+    }
 }

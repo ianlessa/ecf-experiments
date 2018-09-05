@@ -21,7 +21,6 @@ class BaseTransaction extends AbstractTransaction
         parent::__construct($total, $createdAt);
     }
 
-
     /**
      * @return int
      */
@@ -44,21 +43,5 @@ class BaseTransaction extends AbstractTransaction
     public function getTotal()
     {
         return $this->total;
-    }
-
-    /**
-     * @param  int $total
-     * @return AbstractTransaction
-     * @throws InvalidOperationException
-     */
-    protected function setTotal($total)
-    {
-        $intTotal = intval($total);
-        if ($intTotal < 0) {
-            throw new InvalidOperationException('Total must not be less than 0!');
-        }
-
-        $this->total = $intTotal;
-        return $this;
     }
 }

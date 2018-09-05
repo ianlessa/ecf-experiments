@@ -61,7 +61,16 @@ abstract class AbstractTransaction
      * @return AbstractTransaction
      * @throws InvalidOperationException
      */
-    abstract protected function setTotal($total);
+    protected function setTotal($total)
+    {
+        $intTotal = intval($total);
+        if ($intTotal < 0) {
+            throw new InvalidOperationException('Total must not be less than 0!');
+        }
+
+        $this->total = $intTotal;
+        return $this;
+    }
 
     /**
      * @param DateTime $createdAt
