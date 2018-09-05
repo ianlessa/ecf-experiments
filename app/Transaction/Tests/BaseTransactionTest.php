@@ -12,8 +12,9 @@ class BaseTransactionTest extends \PHPUnit_Framework_TestCase
      * @test
      *
      * @covers \Ecf\Transaction\BaseTransaction::__construct
+     * @covers \Ecf\Transaction\BaseTransaction::setTotal
+     *
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
-     * @covers \Ecf\Transaction\AbstractTransaction::setTotal
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
      *
      * @expectedException InvalidOperationException
@@ -30,12 +31,12 @@ class BaseTransactionTest extends \PHPUnit_Framework_TestCase
      *
      * @covers \Ecf\Transaction\BaseTransaction::__construct
      * @covers \Ecf\Transaction\BaseTransaction::getTotal
+     * @covers \Ecf\Transaction\BaseTransaction::setTotal
      * @covers \Ecf\Transaction\BaseTransaction::getTotalPaid
      * @covers \Ecf\Transaction\BaseTransaction::getTotalCanceled
      * @covers \Ecf\Transaction\BaseTransaction::getCreatedAt
      *
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
-     * @covers \Ecf\Transaction\AbstractTransaction::setTotal
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
      */
     public function aTransactionShouldBeCorrectInitialized()
