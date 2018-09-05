@@ -65,7 +65,7 @@ abstract class AbstractTransaction implements ValueObjectInterface
     public function equals(ValueObjectInterface $valueObject)
     {
         return
-            is_a($valueObject,static::class) &&
+            is_a($valueObject, static::class) &&
             $this->getTotal() === $valueObject->getTotal() &&
             $this->getTotalPaid() === $valueObject->getTotalPaid() &&
             $this->getTotalCanceled() === $valueObject->getTotalCanceled();

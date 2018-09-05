@@ -46,7 +46,7 @@ abstract class AbstractPrice implements ValueObjectInterface
     public function equals(ValueObjectInterface $valueObject)
     {
         return
-            is_a($valueObject,static::class) &&
+            is_a($valueObject, static::class) &&
             $this->getValue() === $valueObject->getValue();
     }
 }

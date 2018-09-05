@@ -19,7 +19,6 @@ class AbstractPriceTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Price\DiscountPrice::getValue
      *
      * @covers \Ecf\Price\PriceDecorator::__construct
-     *
      */
     public function itMustBePossibleToVerifyStructuralEqualityOfTwoPrices()
     {
@@ -35,5 +34,4 @@ class AbstractPriceTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($basePrice->equals($sameBasePrice));
         $this->assertFalse($basePrice->equals($differentBasePrice));
     }
-
 }
