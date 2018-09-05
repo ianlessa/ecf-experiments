@@ -9,8 +9,9 @@
          beStrictAboutTodoAnnotatedTests="true"
          verbose="true"
         >
-    <testsuite name="default">
+    <testsuite name="Value Object Tests">
         <directory>app/Price/Tests</directory>
+        <directory>app/Transaction/Tests</directory>
     </testsuite>
 
     <filter>
