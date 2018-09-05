@@ -77,5 +77,4 @@ class PaidTransaction extends TransactionDecorator
 
         return true;
     }
-
 }

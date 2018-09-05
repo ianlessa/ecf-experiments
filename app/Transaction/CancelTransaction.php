@@ -2,7 +2,6 @@
 
 namespace Ecf\Transaction;
 
-
 use DateTime;
 use Ecf\Exception\InvalidOperationException;
 
