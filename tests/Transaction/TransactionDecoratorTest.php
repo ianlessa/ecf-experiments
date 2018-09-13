@@ -3,7 +3,7 @@
 namespace Ecf\Transaction\Tests;
 
 use DateTime;
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 use Ecf\Transaction\BaseTransaction;
 use Ecf\Transaction\CancelTransaction;
 use Ecf\Transaction\PaidTransaction;
@@ -37,7 +37,7 @@ class TransactionDecoratorTest extends \PHPUnit_Framework_TestCase
      *
      * @covers \Ecf\Transaction\TransactionDecorator::__construct
      *
-     * @throws \Ecf\Exception\InvalidOperationException
+     * @throws \Ecf\Base\Exceptions\InvalidOperationException
      */
     public function interationsBetweenDecoratorsShouldReturnCorrectValues()
     {

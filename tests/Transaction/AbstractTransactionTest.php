@@ -30,7 +30,7 @@ class AbstractTransactionTest extends \PHPUnit_Framework_TestCase
      *
      * @covers \Ecf\Transaction\TransactionDecorator::__construct
      *
-     * @throws \Ecf\Exception\InvalidOperationException
+     * @throws \Ecf\Base\Exceptions\InvalidOperationException
      */
     public function itMustBePossibleToVerifyStructuralEqualityOfTwoTransactions()
     {

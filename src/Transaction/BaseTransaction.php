@@ -12,7 +12,7 @@ class BaseTransaction extends AbstractTransaction
      *
      * @param  int      $total
      * @param  DateTime $createdAt
-     * @throws \Ecf\Exception\InvalidOperationException
+     * @throws \Ecf\Base\Exceptions\InvalidOperationException
      */
     public function __construct($total, DateTime $createdAt)
     {

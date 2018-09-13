@@ -3,7 +3,7 @@
 namespace Ecf\Transaction;
 
 use DateTime;
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 
 class PaidTransaction extends TransactionDecorator
 {

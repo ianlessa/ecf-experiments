@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecf\Exception;
+namespace Ecf\Base\Exceptions;
 
 use Exception;
 
@@ -9,7 +9,7 @@ use Exception;
  *
  * This exception should be thrown whenever a param validation fails.
  *
- * @package Ecf\Exception
+ * @package Ecf\Exceptions
  * @author  Ian Lessa <ian.lessa1@gmail.com>
  */
 class InvalidOperationException extends Exception

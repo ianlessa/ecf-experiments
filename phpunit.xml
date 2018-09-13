@@ -10,16 +10,17 @@
          verbose="true"
         >
     <testsuite name="Value Object Tests">
-        <directory>app/Price/Tests</directory>
-        <directory>app/Transaction/Tests</directory>
+        <directory>tests/Price</directory>
+        <directory>tests/Transaction</directory>
     </testsuite>
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">app</directory>
+            <directory suffix=".php">src</directory>
             <exclude>
-                <directory suffix=".php">app/*/Tests</directory>
-                <directory suffix=".php">app/Exception</directory>
+                <directory suffix=".php">tests/*</directory>
+                <directory suffix=".php">src/Base/Exceptions/*</directory>
+                <directory suffix=".php">src/Base/Interfaces/*</directory>
             </exclude>
         </whitelist>
     </filter>

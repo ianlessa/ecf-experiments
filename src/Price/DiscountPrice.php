@@ -2,7 +2,7 @@
 
 namespace Ecf\Price;
 
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 
 class DiscountPrice extends PriceDecorator
 {

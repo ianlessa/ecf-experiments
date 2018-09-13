@@ -10,15 +10,15 @@ class AbstractPriceTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
-     * @covers \Ecf\Price\AbstractPrice::__construct
-     * @covers \Ecf\Price\AbstractPrice::equals
-     * @covers \Ecf\Price\AbstractPrice::setValue
+     * @covers Ecf\Price\AbstractPrice::__construct
+     * @covers Ecf\Price\AbstractPrice::equals
+     * @covers Ecf\Price\AbstractPrice::setValue
      *
-     * @covers \Ecf\Price\BasePrice::getValue
+     * @covers Ecf\Price\BasePrice::getValue
      *
-     * @covers \Ecf\Price\DiscountPrice::getValue
+     * @covers Ecf\Price\DiscountPrice::getValue
      *
-     * @covers \Ecf\Price\PriceDecorator::__construct
+     * @covers Ecf\Price\PriceDecorator::__construct
      */
     public function itMustBePossibleToVerifyStructuralEqualityOfTwoPrices()
     {

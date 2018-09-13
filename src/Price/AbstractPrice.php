@@ -2,8 +2,8 @@
 
 namespace Ecf\Price;
 
-use Ecf\Base\ValueObjectInterface;
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Interfaces\ValueObjectInterface;
+use Ecf\Base\Exceptions\InvalidOperationException;
 
 abstract class AbstractPrice implements ValueObjectInterface
 {

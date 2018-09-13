@@ -2,7 +2,7 @@
 
 namespace Ecf\Price\Tests;
 
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 use Ecf\Price\BasePrice;
 use Ecf\Price\DiscountPrice;
 

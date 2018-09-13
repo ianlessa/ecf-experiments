@@ -3,7 +3,7 @@
 namespace Ecf\Transaction\Tests;
 
 use DateTime;
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 use Ecf\Transaction\BaseTransaction;
 
 class BaseTransactionTest extends \PHPUnit_Framework_TestCase

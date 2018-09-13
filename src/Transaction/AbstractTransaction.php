@@ -3,8 +3,8 @@
 namespace Ecf\Transaction;
 
 use DateTime;
-use Ecf\Base\ValueObjectInterface;
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Interfaces\ValueObjectInterface;
+use Ecf\Base\Exceptions\InvalidOperationException;
 
 abstract class AbstractTransaction implements ValueObjectInterface
 {

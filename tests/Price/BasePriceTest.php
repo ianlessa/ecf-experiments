@@ -2,7 +2,7 @@
 
 namespace Ecf\Price\Tests;
 
-use Ecf\Exception\InvalidOperationException;
+use Ecf\Base\Exceptions\InvalidOperationException;
 use Ecf\Price\BasePrice;
 
 class BasePriceTest extends \PHPUnit_Framework_TestCase

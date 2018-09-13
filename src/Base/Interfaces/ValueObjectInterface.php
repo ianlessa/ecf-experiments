@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecf\Base;
+namespace Ecf\Base\Interfaces;
 
 interface ValueObjectInterface
 {
