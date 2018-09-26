@@ -11,6 +11,8 @@ class AbstractTransactionTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      *
+     * @covers \Ecf\Base\Interfaces\ValueObjectInterface
+     *
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
      * @covers \Ecf\Transaction\AbstractTransaction::equals
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt

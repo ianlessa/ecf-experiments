@@ -17,6 +17,8 @@ class BaseTransactionTest extends \PHPUnit_Framework_TestCase
      * @covers \Ecf\Transaction\AbstractTransaction::__construct
      * @covers \Ecf\Transaction\AbstractTransaction::setCreatedAt
      *
+     * * @covers \Ecf\Base\Exceptions\InvalidOperationException
+     *
      * @expectedException InvalidOperationException
      */
     public function aTransactionShouldNotBeCreatedWithNegativeValue()
